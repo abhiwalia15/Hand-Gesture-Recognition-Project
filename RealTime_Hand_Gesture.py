@@ -11,9 +11,10 @@ while capture.isOpened():
     # Capture frames from the camera
     ret, frame = capture.read()
 
-    # Get hand data from the rectangle sub window
-    cv2.rectangle(frame, (100, 100), (300, 300), (0, 255, 0), 0)
-    crop_image = frame[100:300, 100:300]
+    if ret:
+        # get hand data from the rectangle sub window on the screen
+        cv2.rectangle(frame, (300, 300), (100, 100), (0, 255, 0), 0)
+        crop_image = frame[100:300, 100:300]
 
     # Apply Gaussian blur
     blur = cv2.GaussianBlur(crop_image, (3, 3), 0)
@@ -39,7 +40,7 @@ while capture.isOpened():
     cv2.imshow("Thresholded", thresh)
 
     # Find contours
-    image, contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    image, contours, hierarchy = cv2.findContours(thresh.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
     try:
         # Find contour with maximum area
