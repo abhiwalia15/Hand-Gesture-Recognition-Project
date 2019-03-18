@@ -4,7 +4,7 @@ import cv2
 import math
 
 # Open Camera
-capture = cv2.VideoCapture(1 + cv2.CAP_DSHOW)
+capture = cv2.VideoCapture(1 + cv2.CAP_DSHOW )
 
 while capture.isOpened():
 
