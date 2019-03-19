@@ -1,0 +1,7 @@
+This code works fine for some users but for some users it may show a error .
+
+This error is raised due to the version problem of OpenCV.
+Consider upgrading your opencv library or check for the same on stackover flow.
+
+
+THANKS :)
